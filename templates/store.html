@@ -5,7 +5,7 @@
     <div class="row">
         {% for product in products %}
             <div class="col-lg-4">
-                <img src="{% static 'images/placeholder.png' %}">
+                <img src="{{ product.image.url }}">
                 <div class="box-element product">
                     <h6>
                         <strong>{{ product.name }}</strong>
