@@ -119,8 +119,9 @@
         return cookieValue;
     }
 
-    var csrftoken = getToken('csrftoken')
-
+    {#var csrftoken = getToken('csrftoken')#}
+    var form = document.getElementById('form')
+    var csrftoken = form.getElementsByTagName("input")[0].value
     function submitFormData() {
         console.log('Payment button clicked')
 
