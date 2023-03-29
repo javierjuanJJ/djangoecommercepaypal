@@ -44,6 +44,7 @@
             <br>
             <div class="box-element hidden" id="payment-info">
                 <small>Paypal Options</small>
+                <button id="make-payment">Make payment</button>
             </div>
 
         </div>
@@ -66,4 +67,8 @@
                 <h5>Total: ${{ order.get_cart_total | floatformat:2 }}</h5>
             </div>
         </div>
-    </div>{% endblock %}
+    </div>
+
+
+
+{% endblock %}
