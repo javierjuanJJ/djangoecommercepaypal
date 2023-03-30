@@ -102,6 +102,9 @@
 
 <script type="text/javascript" src="{% static 'js/cart.js' %}">
 
+
+
+
     var user = '{{ request.user }}'
 
     function getToken(name) {
@@ -171,10 +174,37 @@
     }).then((response)=>response.json()).then((data)=>{
         console.log('Success: ', data)
         alert('Transaction completed')
+
+        cart = {}
+        document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path=/"
+
         window.location.href = "{% url 'store' %}"
     })
 
+function getCookie(name) {
+        var cookieArr = document.cookie.split(",")
 
+        for (let i = 0; i < cookieArr.length; i++) {
+            var cookiePair = cookieArr[i].split("=");
+
+            if (name == cookiePair[0].trim()){
+                return decodeURIComponent(cookiePair[1])
+            }
+
+        }
+
+        return null
+
+    }
+
+    var cart = JSON.parse(getCookie('cart'))
+
+    if (cart == undefined){
+        cart = {}
+        console.log('Cart created', cart)
+        document.cookie = 'cart=' + JSON.stringify(cart) + ";domain=;path/"
+    }
+    console.log('Cart:', cart)
 
 </script>
 
