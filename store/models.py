@@ -24,7 +24,9 @@ class Product(models.Model):
     def imageUrl(self):
         try:
             url = self.image.url
-        except:
+            print('image: ', self.image.url)
+        except Exception as e:
+            print (e)
             url = ''
         return url
 
